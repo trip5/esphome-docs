@@ -2,7 +2,7 @@ Beginner's Guide to Installing ESPHome on Docker Desktop
 ========================================================
 
 .. seo::
-    :description: Installing ESPHome On Docker Desktop (For Beginners)
+    :description: A step-by-step beginner's guide to installing and running ESPHome on Docker Desktop, with detailed instructions for Windows, Mac, and Linux users.
     :image: docker-mark-blue.svg
 
 This guide is for people who are not so tech-orientated but wish to get their feet wet with ESPHome.
@@ -32,6 +32,7 @@ On Windows, this will also install any needed dependencies like WSL (Windows Sub
 Apple Virtualization Framework.  You should accept any required other installs.
 
 If you have installation issues, please refer to the docker documentation for
+
 `Windows  <https://docs.docker.com/desktop/install/windows-install/>`__,
 `Linux <https://docs.docker.com/desktop/install/linux/>`__, or
 `Mac <https://docs.docker.com/desktop/install/mac-install/>`__.
