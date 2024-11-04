@@ -28,8 +28,8 @@ ESPHome is a system to control your microcontrollers by simple yet powerful conf
                     </a>
                 </li>
                 <li>
-                    <a class="reference" href="/guides/getting_started_command_line.html">
-                        using the command line
+                    <a class="reference" href="/guides/beginners_guide_adding_devices.html">
+                        adding devices (for beginners)
                     </a>
                 </li>
                 <li>
