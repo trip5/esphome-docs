@@ -28,8 +28,8 @@ Install Docker Desktop
 ----------------------
 
 Download and install the appropriate version of Docker Desktop from `the official site <https://www.docker.com/products/docker-desktop/>`__.
-On Windows, this will also install any needed dependencies like WSL (Windows Subsystem for Linux).  MacOS may install VirtualBox.
-You should accept any required other installs.
+On Windows, this will also install any needed dependencies like WSL (Windows Subsystem for Linux).  On Mac, it will make sure you have
+Apple Virtualization Framework.  You should accept any required other installs.
 
 If you have installation issues, please refer to the docker documentation for
 `Windows  <https://docs.docker.com/desktop/install/windows-install/>`__,
@@ -40,9 +40,9 @@ Please note that although Docker Desktop is not particularly large, containers l
 can take up a lot of space, too. You might be okay with 5GB free space but 10GB or more is highly recommended as a minimum since building
 binaries can also take up space.
 
-If you Docker asks you to login, you can skip this.
+If Docker asks you to login, you can skip this.
 
-Docker usually needs to reboot to finalize the installation.
+Docker may also require a reboot to finalize the installation.
 
 Add the ESPHome container
 -------------------------
@@ -98,7 +98,6 @@ If your window looks like something like this, congratulations!  You are now run
     :align: center
     :width: 95.0%
     :alt: Docker Desktop showing the container running
-
 
 Go back to the Containers tab to manage the ESPHome container and ``Open with browser`` anytime the container is running.
 
@@ -192,7 +191,7 @@ and restart the container with your previous settings.  It will do this to all e
 What's Next?
 ------------
 
-Now you can add your :ref:`first ESPHome device <beginners_guide_adding_devices>`!
+Now you can add your :doc:`first ESPHome device <beginners_guide_adding_devices>`!
 
 See Also
 --------

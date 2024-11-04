@@ -12,11 +12,16 @@ This guide is for people who are not so tech-orientated but wish to get their fe
     ESPHome devices usually rely on Home Assistant.  It's more than just an excellent way to control and automate your home.
     It can also manage many IoT devices.  Read more about `Home Assistant <https://www.home-assistant.io/>`__.
 
+    If you are already running Home Assistant, check out :doc:`getting_started_hassio` to run ESPHome as an add-on.
+    
+    If running Home Assistant in Docker, get ESPHome by following instructions in the first part of :doc:`getting_started_command_line`.
+
+    Or if not running Docker or Home Assistant at all, you can try :doc:`beginners_guide_docker_desktop`.
 
 Setting up your Secrets
 -----------------------
 
-The first thing you should do is edit up your ``Secrets`` file. This contains reusable elements that you can "hide" from the main ESPHome GUI.
+The first thing you should do is edit your ``Secrets`` file. This contains reusable elements that you can "hide" from the main ESPHome GUI.
 
 Also, it allows you to copy and paste YAMLs from your own code to share with others (and vice versa) without the worry of leaking details about your home network.
 
@@ -47,8 +52,8 @@ Finally, ``ap_password`` sets a password for the hotspot that an ESPHome device 
 
 .. note::
 
-    Please note in the above example, I have included comments with the ``#`` character.  Comments can be added as their own lines at the end of lines.
-    Anything in the line following the ``#`` are ignored.  In more complicated YAML files, comments can be used to explain what a particular section of code is doing.
+    Please note in the above example, I have included comments with the ``#`` character.  Comments can be added as their own lines or at the end of lines.
+    Anything in the line after the ``#`` are ignored.  Often, comments can be used to explain what a particular section of code is doing.
 
 .. warning::
   
@@ -65,8 +70,8 @@ OTA
 
 An ``ota_password`` is used to securely send Over-the-Air (OTA) updates from ESPHome to a device.
 For beginners, it is a good idea to use the same password for all of your ESPHome devices.  This will ensure your updates are not broken by ESPHome's
-default behavior of creating new passwords for every device.  You can make this password however long and complicated
-as you like because you will not have to remember it.
+default behavior of creating new passwords for every device.  You can make this password as long and complicated as you like because
+you will not have to remember it.
 
 MQTT
 ****
@@ -79,7 +84,7 @@ MQTT
 
 These lines regard the MQTT (Message Queue Telemetry Transport) protocol.  MQTT is a lightweight, publish-subscribe-based messaging protocol that is
 commonly used in IoT devices.  The ``mqtt_broker`` is the IP address of the MQTT server and the ``mqtt_name`` and ``mqtt_password`` are the username and password.
-If you are not running an MQTT server, you do not need to add these to your secrets just yet.
+If you are not running an MQTT server, you do not need to add these to your secrets yet.
 
 Save
 ****
@@ -371,7 +376,7 @@ ota:
 This section is pretty important.  It allows `Over-the-Air Updates <https://esphome.io/components/ota/>`__.
 Unless you want to make a physical connection to the device every time you want to update it, you should keep this section.
 
-And unfortunately, it's incomplete.  As of 2024.6.0, ESPHome has changed the way OTA updates are specified.
+Unfortunately, it's incomplete.  As of 2024.6.0, ESPHome has changed the way OTA updates are specified.
 As a bonus, we finally get to use one of the secrets we created earlier.
 
 .. code-block:: yaml
@@ -445,10 +450,10 @@ captive_portal:
     captive_portal:
 
 The `captive_portal <https://esphome.io/components/captive_portal.html>`__ section is responsible to create a special web server using
-the hotspot created in conjunction with the `ap` information specified above.
+the hotspot created in conjunction with the `ap:` information specified above.
 This allows you allows you to give the device new wireless network credentials when the device cannot connect to the network it expects.
 
-When you connect to the fallback network, the web interface should open automatically or there should be a prompt on your phone to open
+When you connect to the fallback hotspot, the web interface should open automatically or there should be a prompt on your phone to open
 the login. If that does not work, you can also navigate to `http://192.168.4.1/ <http://192.168.4.1/>`__ manually in your browser.
 
 Other Sections (Device Configuration)
@@ -602,10 +607,10 @@ What's Next?
 Now you're ready to actually flash the device with your fresh ESPHome binary!
 
 If you're lucky, the device already has ESPHome, you can actually just connect to it via web browser and upload your new binary file.
-If your device already has :ref:`Tasmota <migrate_sonoff_tasmota>`, :ref:`ESPEasy <migrate_espeasy>`, or :ref:`ESPurna <migrate_espurna>`,
+If your device already has :doc:`Tasmota <migrate_sonoff_tasmota>`, :doc:`ESPEasy <migrate_espeasy>`, or :doc:`ESPurna <migrate_espurna>`,
 it's also pretty easy.
 
-Harder, but possibly necessary, make a :ref:`physical connection to the device <physical device connection>`!
+Harder, but possibly necessary, make a :doc:`physical connection to the device <physical device connection>`!
 
 See Also
 --------
