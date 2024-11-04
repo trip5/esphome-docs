@@ -561,7 +561,7 @@ On the living-room-light's YAML, click the three dots ``⋮`` and select ``Valid
     :width: 95.0%
     :alt: ESPHome Dashboard after clicking a YAML's ⋮ showing options with a circle around "Validate"
 
-If there are errors, read the message, then edit your YAML to fix the problem. You may need to search :doc:`ESPHome.io </index>` and do some reading.
+If there are errors, read the message, then edit your YAML to fix the problem. You may need to search :doc:`ESPHome.io</index>` and do some reading.
 
 If no errors, click ``Install``.
 
@@ -609,7 +609,7 @@ If you're lucky, the device already has ESPHome, you can actually just connect t
 If your device already has :doc:`Tasmota <migrate_sonoff_tasmota>`, :doc:`ESPEasy <migrate_espeasy>`, or :doc:`ESPurna <migrate_espurna>`,
 it's also pretty easy.
 
-Harder, but possibly necessary, make a :doc:`physical connection to the device <physical device connection>`!
+Harder, but possibly necessary, make a :doc:`physical connection to the device <physical_device_connection>`!
 
 See Also
 --------
