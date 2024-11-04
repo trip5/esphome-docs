@@ -40,9 +40,9 @@ Add the next 4 lines, replacing the placeholders with your own values.
 .. code-block:: yaml
 
     # My Wi-Fi SSID and password
-    wifi_ssid: "MyHomeWifi"
-    wifi_password: "password1234"
-    ap_password: "password1234" # Super-secret!
+    wifi_ssid: "<MY_WIFI_NAME>"
+    wifi_password: "<MY_WIFI_PASSWORD>"
+    ap_password: "<MY_AP_PASSWORD>" # Super-secret!
 
 These are the 3 most basic secrets. The wireless network name is set by ``wifi_ssid`` and the password is set by ``wifi_password``.
 Actually, the names ``wifi_ssid``, ``wifi_password`` are arbitrary.  You could just as easily use ``home_wifi``, ``home_password`` if you like.
@@ -56,17 +56,17 @@ Finally, ``ap_password`` sets a password for the hotspot that an ESPHome device 
     Anything in the line after the ``#`` are ignored.  Often, comments can be used to explain what a particular section of code is doing.
 
 .. warning::
-  
+
     Although it is theoretically possible to use a 5Ghz or 6Ghz wireless network, there are not many ESP-based devices that actually support those ranges.
     Most known devices only support the 2.4Ghz range. In best practice, it is recommended that your wireless network frequencies have different names,
-    for example, "MyHomeWifi" for 2.4Ghz and "MyHome5Ghz" for 5Ghz.
+    for example, "MyWifi" for 2.4Ghz and "MyWifi5G" for 5Ghz.
 
 OTA
 ***
 
 .. code-block:: yaml
 
-    ota_password: "abc123def456ghi789"
+    ota_password: "<MY_OTA_PASSWORD>"
 
 An ``ota_password`` is used to securely send Over-the-Air (OTA) updates from ESPHome to a device.
 For beginners, it is a good idea to use the same password for all of your ESPHome devices.  This will ensure your updates are not broken by ESPHome's
@@ -117,7 +117,7 @@ surely be different but the principles will be the same.
     is constantly evolving, elements are always changing, and sometimes what you find by searching may not always be
     up-to-date for the latest version of ESPHome.  The community is always improving the documentation but there are often discrepancies.
     By the time you read this, it's possible some things here may be out-of-date.  It's always best to search
-    `ESPHome.io <https://esphome.io/>`__ if something is giving you trouble,
+    :doc:`ESPHome.io </index>` if something is giving you trouble,
     the `Home Assistant forums <https://community.home-assistant.io/c/esphome/36>`__,
     ESPHome on `Discord <https://discord.com/invite/KhAMKrd>`__,
     or search the `Reddit sub <https://www.reddit.com/r/Esphome/>`__.
@@ -261,7 +261,7 @@ Throughout the rest of this tutorial, there will be links to more detailed docum
 substitutions:
 ^^^^^^^^^^^^^^
 
-First, let's take a look at the very important `substitutions <https://esphome.io/components/substitutions.html>`__ section.
+First, let's take a look at the very important :doc:`substitutions </components/substitutions>` section.
 
 .. code-block:: yaml
 
@@ -320,8 +320,7 @@ for it to change it.
       substitutions that do not use curly brackets like ``$device_name``.  Both are acceptable but curly brackets are used to avoid errors.
 
 As for this ``esphome`` section.  There's not much reason to change anything, except maybe for ``name_add_mac_suffix: true``.
-"What does that do?" you may be asking.  Let's check the documentation regarding
-`ESPHome Core Configuration <https://esphome.io/components/esphome.html>`__.
+"What does that do?" you may be asking.  Let's check the documentation regarding :doc:`ESPHome Core Configuration </components/esphome>`.
 
 .. figure:: images/noob_dashboard_3e.png
     :align: center
@@ -351,7 +350,7 @@ Sometimes sections are blank but absolutely crucial they are present.  This next
 
     api:
 
-This tells the device that it will be communicating with `Home Assistant API <https://esphome.io/components/api.html>`__.
+This tells the device that it will be communicating with the :doc:`Home Assistant API </components/api>`.
 If you are running Home Assistant, you need to keep this line, but go back above the ``#-----`` we made earlier and
 and copy and paste the encryption key that was generated when the initial YAML was made, so we end up with something like:
 
@@ -359,7 +358,7 @@ and copy and paste the encryption key that was generated when the initial YAML w
 
     api:
       encryption:
-        key: "LTNtifZwDD+mxodyTiIfjQBTv22itLtmVLE+gFdGmCo="
+        key: "<YOUR_ENCRYPTION_KEY>"
 
 If you don't have Home Assistant, you should just delete this section. If left in, the device will continuously
 try to make a connection to Home Assistant and reboot every 15 minutes to re-attempt making the connection.
@@ -373,7 +372,7 @@ ota:
 
     ota:
 
-This section is pretty important.  It allows `Over-the-Air Updates <https://esphome.io/components/ota/>`__.
+This section is pretty important.  It allows :doc:`Over-the-Air Updates </components/ota/index>`.
 Unless you want to make a physical connection to the device every time you want to update it, you should keep this section.
 
 Unfortunately, it's incomplete.  As of 2024.6.0, ESPHome has changed the way OTA updates are specified.
@@ -392,7 +391,7 @@ logger:
 
     logger:
 
-`Logging <https://esphome.io/components/logger.html>`__ is important.  Leave it in but if you find the messages overwhelming,
+:doc:`Logging </components/logger>` is important.  Leave it in but if you find the messages overwhelming,
 you can lower the level to only show errors (the default is DEBUG) with:
 
 .. code-block:: yaml
@@ -408,8 +407,8 @@ web_server:
     web_server:
       port: 80
 
-This section creates a `web server <https://esphome.io/components/web_server.html>`__ on the device
-so you can access and control the device using the mDNS or IP address.
+This section creates a :doc:`web server </components/web_server>`
+on the device so you can access and control the device using the mDNS or IP address.
 Chances are good that the web address will match what we made the `name:` earlier (which refers to the substitution `device-name`).
 So after flashing the new firmware, we should be able to go to `http://living-room-light.local <http://living-room-light.local>`__ and control the light bulb.
 
@@ -429,7 +428,7 @@ wifi:
       password: !secret wifi_password
       ap:
 
-The `wifi<https://esphome.io/components/wifi.html>`__ section gives the device the name and password of the local wireless network
+The :doc:`wifi </components/wifi>` section gives the device the name and password of the local wireless network
 (as specified in the secrets).  The ``ap:`` part specifies that it will create a hotspot in case the device cannot connect to the network.
 But let's edit that so the hotspot created will have the device's name as the hotspot name and the password as specified in the secrets file.
 
@@ -449,7 +448,7 @@ captive_portal:
 
     captive_portal:
 
-The `captive_portal <https://esphome.io/components/captive_portal.html>`__ section is responsible to create a special web server using
+The :doc:`captive_portal </components/captive_portal>` section is responsible to create a special web server using
 the hotspot created in conjunction with the `ap:` information specified above.
 This allows you allows you to give the device new wireless network credentials when the device cannot connect to the network it expects.
 
@@ -463,12 +462,12 @@ The rest of the YAML specifies the various components that make the light bulb a
 Or, as in the case of ``text_sensor``, provide additional information.
 
 In this example, they are:
-`binary_sensor <https://esphome.io/components/binary_sensor/>`__,
-`sensor <https://esphome.io/components/sensor/>`__,
-`switch <https://esphome.io/components/switch/>`__,
-`output <https://esphome.io/components/output/>`__,
-`light <https://esphome.io/components/light/>`__, and
-`text_sensor <https://esphome.io/components/text_sensor/>`__.
+:doc:`binary_sensor </components/binary_sensor/index>`,
+:doc:`sensor </components/sensor/index>`,
+:doc:`switch </components/switch/index>`,
+:doc:`output </components/output/index>`,
+:doc:`light </components/light/index>`, and
+:doc:`text_sensor </components/text_sensor/index>`.
 
 Of course, other devices may include other components.
 
@@ -562,7 +561,7 @@ On the living-room-light's YAML, click the three dots ``⋮`` and select ``Valid
     :width: 95.0%
     :alt: ESPHome Dashboard after clicking a YAML's ⋮ showing options with a circle around "Validate"
 
-If there are errors, read the message, then edit your YAML to fix the problem. You may need to check `ESPHome.io <https://esphome.io/>`__ and do some reading.
+If there are errors, read the message, then edit your YAML to fix the problem. You may need to search :doc:`ESPHome.io </index>` and do some reading.
 
 If no errors, click ``Install``.
 

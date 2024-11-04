@@ -118,7 +118,7 @@ You can also update Docker Desktop itself by clicking on the gear and then click
 Also when starting Docker Desktop again, you may also need to run the container again using this screen.  When it is running the run ``▶`` icon will change to a stop ``⯀`` icon.
 
 .. note::
-    
+
     Also in this screen are options to stop and delete the container.  You **MUST** stop the container AND delete the container before updating the ESPHome image.
 
 To update the ESPHome container (so you can run the latest version of ESPHome), click ``Settings`` then three dots ``⋮``,
@@ -186,7 +186,7 @@ and restart the container with your previous settings.  It will do this to all e
 
     It is not actually best practice to perform updates automatically like this but it is a good way to automate the process if you are only running one container.
 
-    You should probably check ESPHome's `Release Notes <https://esphome.io/changelog/>`__ before, during, or after an update to see if there are any changes that affect your devices.
+    You should probably check ESPHome's :doc:`Release Notes </changelog/index>` before, during, or after an update to see if there are any changes that affect your devices.
 
 What's Next?
 ------------
