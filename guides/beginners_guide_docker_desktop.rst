@@ -22,7 +22,13 @@ Prepare Location for Docker and ESPHome Files
 
 You will need to make folders where Docker can use config files for ESPHome (and other containers).  This makes it painless to update the ESPHome container.
 
-I recommend something easy to find.  The example below uses ``D:\Docker\esphome`` but anything easy to find will be good.
+I recommend something easy to find. Here are examples for different operating systems:
+
+* Windows: ``D:\Docker\esphome``
+* Linux: ``~/docker/esphome`` or ``/home/username/docker/esphome``
+* Mac: ``~/docker/esphome`` or ``/Users/username/docker/esphome``
+
+Choose any location that's easy for you to find and remember.
 
 Install Docker Desktop
 ----------------------
@@ -75,6 +81,12 @@ Click on ``Images`` again and it should now show that you have the image ``espho
 
 Before actually running, expand the optional settings. Give the container a name like ``esphome`` (you can use capital letters here if you like).
 Also, set the port to use to access the GUI.  The default is ``6052``.
+
+.. note::
+
+    If port 6052 is already in use on your system, you can use a different port number.
+    Just remember to use the new port number when accessing the ESPHome dashboard in your browser.
+
 In the ``Volumes`` options, enter the locations ``Host path`` (set to the location created earlier) and ``Container path`` (Set to ``/config`` - it **MUST** be exactly like this).
 Also, add an environment variable called ``TZ`` and set to your local timezone.  If you're not sure what yours is called, check
 `Wikipedia <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>`_ under ``TZ identifier``.  Canonical-types are best.
@@ -185,9 +197,19 @@ and restart the container with your previous settings.  It will do this to all e
 
 .. note::
 
-    It is not actually best practice to perform updates automatically like this but it is a good way to automate the process if you are only running one container.
-
-    You should probably check ESPHome's :doc:`Release Notes </changelog/index>` before, during, or after an update to see if there are any changes that affect your devices.
+    While automatic updates can be convenient, they come with risks:
+    
+    1. Breaking changes in new versions could affect your devices
+    2. Updates might occur at inconvenient times
+    3. Rollback might be needed if issues occur
+    
+    It's recommended to:
+    
+    * Review ESPHome's :doc:`Release Notes </changelog/index>` before updates
+    * Consider manual updates for better control
+    * Keep backups of your configuration
+    
+    If you choose automatic updates, monitor your devices after updates for any issues.
 
 What's Next?
 ------------
