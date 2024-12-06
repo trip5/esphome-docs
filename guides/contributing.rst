@@ -105,7 +105,7 @@ Build
 
 .. note::
 
-    The easiest way is to use the `esphome-docs container image <ghcr.io/esphome/esphome-docs/>`__:
+    The easiest way is to use the `esphome-docs container image <https://ghcr.io/esphome/esphome-docs/>`__:
 
     .. code-block:: bash
 
@@ -205,9 +205,11 @@ adhere to the following order:
 
   `Google.com <https://www.google.com>`__
 
+.. _contributing-referrals:
+
   .. note::
 
-      Referral links are only permitted if they provide a direct benefit to the ESPHome project. 
+      Referral links are only permitted if they provide a direct benefit to the ESPHome project.
       This policy applies to all official ESPHome documentation and websites.
 
 - **References**: To reference another document, use the ``:doc:`` and ``:ref:`` roles (references are set up globally

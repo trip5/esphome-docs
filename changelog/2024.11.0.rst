@@ -48,6 +48,33 @@ Release 2024.11.1 - November 22
 - Fix for OTA mode not activating in safe_mode when OTA section has an on_xxxx action  :esphomepr:`7796` by :ghuser:`Dilbert66`
 - Ensure storage I/O for ignored devices runs in the executor :esphomepr:`7792` by :ghuser:`bdraco`
 
+Release 2024.11.2 - November 27
+-------------------------------
+
+- [lvgl] Bugfixes :esphomepr:`7803` by :ghuser:`clydebarrow`
+- [docker] Leave run-time required libraries installed. :esphomepr:`7804` by :ghuser:`clydebarrow`
+- [qspi_dbi] Fix init sequences (Bugfix) :esphomepr:`7805` by :ghuser:`clydebarrow`
+- fix modbus crashing when bad data returned :esphomepr:`7810` by :ghuser:`ssieb`
+- [Modbus Controller] Fix issue #6477. Online automation triggering Offline :esphomepr:`7801` by :ghuser:`0x3333`
+- [fix] Status sensor does not check if required network component is missing :esphomepr:`7734` by :ghuser:`rvalitov`
+- keypad binary sensors should be initially off :esphomepr:`7808` by :ghuser:`ssieb`
+- fix 32 char SSIDs :esphomepr:`7834` by :ghuser:`ssieb`
+- [honeywell] use warning instead of failing :esphomepr:`7862` by :ghuser:`ssieb`
+
+Release 2024.11.3 - December 6
+------------------------------
+
+- [opentherm] Fix out of memory errors on ESP8266 :esphomepr:`7835` by :ghuser:`olegtarasov`
+- fix local time timestamp calculation :esphomepr:`7807` by :ghuser:`ssieb`
+- [online_image]Don't access decoder if not initialized :esphomepr:`7882` by :ghuser:`guillempages`
+- Add IRAM_ATTR to all functions used during interrupts on esp8266 chips. :esphomepr:`7840` by :ghuser:`FreeBear-nc`
+- [st7920] Remove unnecessary warning when drawing outside display bounds :esphomepr:`7868` by :ghuser:`jesserockz`
+- Fix recalc_timestamp_utc :esphomepr:`7894` by :ghuser:`RouNNdeL`
+- Cast port to int for ota pushing :esphomepr:`7888` by :ghuser:`jesserockz`
+- [lvgl] Bugfixes :esphomepr:`7896` by :ghuser:`clydebarrow`
+- [lvgl] Fix msgbox content :esphomepr:`7912` by :ghuser:`clydebarrow`
+- [esp32] Fix crash with empty `platformio_options:` value :esphomepr:`7920` by :ghuser:`clydebarrow`
+
 Full list of changes
 --------------------
 
